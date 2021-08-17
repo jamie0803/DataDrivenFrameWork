@@ -13,7 +13,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
 /**
  * @Author: Zhang Huijuan
@@ -22,7 +21,6 @@ import java.util.logging.Logger;
 public class TestMail126AddContactPerson {
     public WebDriver webDriver;
 
-    private static Logger log = Logger.getLogger(Log.class.getName());
 
     @BeforeClass
     public void beforeClass() throws Exception {
@@ -31,6 +29,7 @@ public class TestMail126AddContactPerson {
 
     @BeforeTest
     public void beforeMethod() {
+        Log.info("打开浏览器");
         //设置驱动地址
         System.setProperty("webdriver.gecko.driver", Constant.driverPath);
         //设置打开浏览器的地址
@@ -41,14 +40,14 @@ public class TestMail126AddContactPerson {
 
     @Test
     public void testMail126AddContactPerson() throws Exception {
-        log.info(ExcelUtil.getCellData(1,0));
+        Log.startTestCase(ExcelUtil.getCellData(1,0));
         String username = ExcelUtil.getCellData(1, 1);
         String password = ExcelUtil.getCellData(1, 2);
         String contactName = ExcelUtil.getCellData(1, 3);
         String email = ExcelUtil.getCellData(1, 4);
         String phone = ExcelUtil.getCellData(1, 5);
 
-        log.info("调用AddContactPersonAction的createContact方法");
+        Log.info("调用AddContactPersonAction的createContact方法");
         AddContactPersonAction.createContact(webDriver, username,
                 password, contactName, email, phone);
         Thread.sleep(3000);
@@ -61,6 +60,7 @@ public class TestMail126AddContactPerson {
 
     @AfterMethod
     public void afterMethod() {
+        Log.info("关闭浏览器");
         webDriver.quit();//关闭浏览器
     }
 

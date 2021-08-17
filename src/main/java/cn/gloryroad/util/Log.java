@@ -1,7 +1,6 @@
 package cn.gloryroad.util;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * @Author: Zhang Huijuan
@@ -18,21 +17,21 @@ public class Log {
     public static void endTestCase(String testCaseName){
         logger.info("-----------------"+testCaseName+"开始执行-----------------");
     }
-
+    //定义打印 debug 级别日志的方法
+    public static void debug(String message){
+        logger.debug(message);
+    }
     //定义打印 info 级别日志的方法
     public static void info(String message){
-        Log.info(message);
         logger.info(message);
     }
     //定义打印 error 级别日志的方法
     public static void error(String message){
+        logger.error(message);
     }
-    //定义打印 debug 级别日志的方法
-    public static void debug(String message){
-        Log.debug(message);
+    //定义打印 warn 级别日志的方法
+    public static void warn(String message){
+        logger.warn(message);
     }
-
-
-
 }
 
