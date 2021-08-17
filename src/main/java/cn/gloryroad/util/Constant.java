@@ -17,8 +17,4 @@ public class Constant {
     public static final String ContactPersonEmail = "zhangsan@sogou.com";
     //定义新建联系人手机号码的常量
     public static final String ContactPersonMobile = "14900000001";
-
-    public static void main(String[] args) {
-
-    }
 }
