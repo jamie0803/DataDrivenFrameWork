@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
  */
 public class AddressBookPage {
     public WebElement element;
-    private ObjectMap objectMap = new ObjectMap("D:\\ForDevelopTest\\JavaDocument\\DataDrivenFrameWork\\objectMap.properties");
+    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
 
     private WebDriver driver;
 

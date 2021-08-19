@@ -13,7 +13,7 @@ public class LoginPage {
     private WebElement element;
     //制定页面元素定位表达式配置文件的绝对路径
     private ObjectMap objectMap = new
-            ObjectMap("D:\\ForDevelopTest\\JavaDocument\\DataDrivenFrameWork\\objectMap.properties");
+            ObjectMap("objectMap.properties");
 
     private WebDriver driver;
 

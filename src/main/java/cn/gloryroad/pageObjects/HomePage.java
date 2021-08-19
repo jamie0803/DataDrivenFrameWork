@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
  */
 public class HomePage {
     private WebElement element;
-    private ObjectMap objectMap = new ObjectMap("D:\\ForDevelopTest\\JavaDocument\\DataDrivenFrameWork\\objectMap.properties");
+    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
 
     private WebDriver driver;
     public HomePage(WebDriver driver) {

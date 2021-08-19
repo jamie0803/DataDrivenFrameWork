@@ -40,7 +40,7 @@ public class TestMail126AddContactPerson {
 
     @Test
     public void testMail126AddContactPerson() throws Exception {
-        Log.startTestCase(ExcelUtil.getCellData(1,0));
+        Log.startTestCase(ExcelUtil.getCellData(1, 0));
         String username = ExcelUtil.getCellData(1, 1);
         String password = ExcelUtil.getCellData(1, 2);
         String contactName = ExcelUtil.getCellData(1, 3);
@@ -48,13 +48,18 @@ public class TestMail126AddContactPerson {
         String phone = ExcelUtil.getCellData(1, 5);
 
         Log.info("调用AddContactPersonAction的createContact方法");
-        AddContactPersonAction.createContact(webDriver, username,
-                password, contactName, email, phone);
+        AddContactPersonAction.createContact(webDriver, username, password, contactName, email, phone);
+        Log.info("调用 AddContactPerson_Action类的execute方法后，休眠 3 秒");
         Thread.sleep(3000);
+        Log.info("断言通讯录的页面是否包含联系人姓名的关键字");
         Assert.assertTrue(webDriver.getPageSource().contains(contactName));
+        Log.info("断言通讯录的页面是否包含联系人电子邮件地址的关键字");
         Assert.assertTrue(webDriver.getPageSource().contains(email));
+        Log.info("断言通讯录的页面是否包含联系人手机号的关键字");
         Assert.assertTrue(webDriver.getPageSource().contains(phone));
+        Log.info("新建联系人的全部断言成功，在 Excel 测试数据文件的“测试执行结果”列中写入“执行成功”");
         ExcelUtil.setCellData(1, 9, "success");
+        Log.endTestCase(ExcelUtil.getCellData(1, 0));
     }
 
 

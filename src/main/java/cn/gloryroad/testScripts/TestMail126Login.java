@@ -2,6 +2,7 @@ package cn.gloryroad.testScripts;
 
 import cn.gloryroad.appMoudles.LoginAction;
 import cn.gloryroad.pageObjects.LoginPage;
+import cn.gloryroad.util.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;

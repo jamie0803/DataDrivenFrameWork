@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
  * @Date: 2021/8/15 11:17
  */
 public class Log {
+    //读取log4j文件
+
     public static Logger logger = Logger.getLogger(Log.class.getName());
 
     //定义测试用例开始执行的打印方法，在日志中打印测试用例开始执行的信息
@@ -15,7 +17,7 @@ public class Log {
     }
     //定义测试用例执行完毕的打印方法，在日志中打印测试用例执行完毕的信息
     public static void endTestCase(String testCaseName){
-        logger.info("-----------------"+testCaseName+"开始执行-----------------");
+        logger.info("-----------------"+testCaseName+"结束执行-----------------");
     }
     //定义打印 debug 级别日志的方法
     public static void debug(String message){
