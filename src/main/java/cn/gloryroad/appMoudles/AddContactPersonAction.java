@@ -3,7 +3,13 @@ package cn.gloryroad.appMoudles;
 import cn.gloryroad.pageObjects.AddressBookPage;
 import cn.gloryroad.pageObjects.HomePage;
 import cn.gloryroad.util.Log;
+import org.checkerframework.checker.nullness.compatqual.NullableDecl;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 /**
@@ -14,9 +20,15 @@ public class AddContactPersonAction {
     public static void createContact(WebDriver driver, String username, String password, String contactName, String email, String phone) throws Exception {
         Log.info("调用 Login_Action 类的 execute 方法");
         LoginAction.execute(driver, username, password);
-        Thread.sleep(3000);
         Log.info("断言登录后的页面是否包含“未读邮件”关键字");
-        Assert.assertTrue(driver.getPageSource().contains("未读邮件"));
+        Boolean until = (new WebDriverWait(driver, 5)).until(new ExpectedCondition<Boolean>() {
+            @NullableDecl
+            @Override
+            public Boolean apply(@NullableDecl WebDriver driver) {
+                return driver.findElement(By.xpath("//div[text()='未读邮件']")).isDisplayed();
+            }
+        });
+//        Assert.assertTrue(driver.getPageSource().contains("未读邮件"));
         Log.info("在登录后的用户主页中，单击“通讯录”链接");
         HomePage homePage = new HomePage(driver);
         homePage.addressLink().click();

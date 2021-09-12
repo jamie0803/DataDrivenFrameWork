@@ -31,7 +31,7 @@ public class TestMail126AddContactPerson {
         //设置驱动地址
         System.setProperty("webdriver.gecko.driver", Constant.driverPath);
         //设置打开浏览器的地址
-        System.setProperty("webdriver.firefox.bin", Constant.browswePath);
+        System.setProperty("webdriver.firefox.bin", Constant.browserPath);
         webDriver = new FirefoxDriver();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         webDriver.get(Constant.Url);
@@ -129,8 +129,8 @@ public class TestMail126AddContactPerson {
     }
 
 
-    @AfterMethod
-    public void afterMethod() {
+    @AfterTest
+    public void afterTest() {
         Log.info("关闭浏览器");
         webDriver.quit();//关闭浏览器
     }

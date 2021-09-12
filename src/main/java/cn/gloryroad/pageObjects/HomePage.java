@@ -1,6 +1,8 @@
 package cn.gloryroad.pageObjects;
 
+import cn.gloryroad.util.Constant;
 import cn.gloryroad.util.ObjectMap;
+import cn.gloryroad.util.Tools;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -11,7 +13,9 @@ import org.testng.annotations.Test;
  */
 public class HomePage {
     private WebElement element;
-    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
+//    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
+    private ObjectMap objectMap = new ObjectMap(Tools.getFilePath(HomePage.class, Constant.ObjectMapProfileName));
+
 
     private WebDriver driver;
     public HomePage(WebDriver driver) {

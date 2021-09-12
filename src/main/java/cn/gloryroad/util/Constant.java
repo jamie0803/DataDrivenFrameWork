@@ -5,8 +5,10 @@ package cn.gloryroad.util;
  * @Date: 2021/8/12 21:40
  */
 public class Constant {
+    //定义objectMap文件
+    public static final String ObjectMapProfileName = "objectMap.properties";
     //浏览器地址
-    public static final String browswePath = "D:\\Program Files\\Mozilla Firefox\\firefox.exe";
+    public static final String browserPath = "D:\\Program Files\\Mozilla Firefox\\firefox.exe";
     //驱动地址
     public static final String driverPath = "D:\\ForDevelopTest\\geckodriver.exe";
     //定义测试网址的常量

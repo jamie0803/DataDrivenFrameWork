@@ -1,6 +1,8 @@
 package cn.gloryroad.pageObjects;
 
+import cn.gloryroad.util.Constant;
 import cn.gloryroad.util.ObjectMap;
+import cn.gloryroad.util.Tools;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -12,8 +14,8 @@ import org.openqa.selenium.WebElement;
 public class LoginPage {
     private WebElement element;
     //制定页面元素定位表达式配置文件的绝对路径
-    private ObjectMap objectMap = new
-            ObjectMap("objectMap.properties");
+//    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
+    private ObjectMap objectMap = new ObjectMap(Tools.getFilePath(LoginPage.class, Constant.ObjectMapProfileName));
 
     private WebDriver driver;
 

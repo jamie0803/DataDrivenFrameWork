@@ -1,6 +1,8 @@
 package cn.gloryroad.pageObjects;
 
+import cn.gloryroad.util.Constant;
 import cn.gloryroad.util.ObjectMap;
+import cn.gloryroad.util.Tools;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -10,7 +12,8 @@ import org.openqa.selenium.WebElement;
  */
 public class AddressBookPage {
     public WebElement element;
-    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
+//    private ObjectMap objectMap = new ObjectMap("objectMap.properties");
+    private ObjectMap objectMap = new ObjectMap(Tools.getFilePath(AddressBookPage.class, Constant.ObjectMapProfileName));
 
     private WebDriver driver;
 
