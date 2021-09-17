@@ -4,13 +4,9 @@ import cn.gloryroad.pageObjects.AddressBookPage;
 import cn.gloryroad.pageObjects.HomePage;
 import cn.gloryroad.util.Log;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 /**
  * @Author: Zhang Huijuan
@@ -25,7 +21,7 @@ public class AddContactPersonAction {
             @NullableDecl
             @Override
             public Boolean apply(@NullableDecl WebDriver driver) {
-                return driver.findElement(By.xpath("//div[text()='未读邮件']")).isDisplayed();
+                return driver.getPageSource().contains("未读邮件");
             }
         });
 //        Assert.assertTrue(driver.getPageSource().contains("未读邮件"));
