@@ -19,6 +19,7 @@ public class AddContactPersonAction {
         HomePage homePage = new HomePage(driver);
         homePage.addressLink().click();
 
+        //测试rollback
         AddressBookPage bookPage = new AddressBookPage(driver);
         Thread.sleep(3000);
         bookPage.createContactPerson().click();
