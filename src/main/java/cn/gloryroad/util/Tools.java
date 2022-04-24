@@ -1,7 +1,5 @@
 package cn.gloryroad.util;
 
-import org.apache.poi.ss.formula.functions.T;
-
 import java.net.URL;
 
 /**
@@ -11,9 +9,9 @@ import java.net.URL;
  * 如果在resource文件夹下（maven项目），要设法获取文件路径
  */
 public class Tools {
-    public static String getFilePath(Class<?> className, String configNileName) {
+    public static String getFilePath(Class<?> className, String configFileName) {
         ClassLoader classLoader = className.getClassLoader();
-        URL resource = classLoader.getResource(configNileName);
+        URL resource = classLoader.getResource(configFileName);
         String configPath = resource.getPath();
         return configPath;
     }

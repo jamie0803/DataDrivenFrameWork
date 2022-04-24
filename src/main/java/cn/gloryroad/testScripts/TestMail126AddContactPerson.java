@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: Zhang Huijuan
+ * @Auther: Zhang Huijuan
  * @Date: 2021/8/11 22:12
  */
 public class TestMail126AddContactPerson {

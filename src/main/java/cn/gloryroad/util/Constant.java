@@ -23,8 +23,10 @@ public class Constant {
     public static final String ContactPersonEmail = "zhangsan@sogou.com";
     //定义新建联系人手机号码的常量
     public static final String ContactPersonMobile = "14900000001";
-
+    public static final String TestDataExcelFileSheet = "新建联系人测试用例";
     public static String TestDataExcelFilePath = "D:\\126邮箱测试数据.xlsx";
 
-    public static final String TestDataExcelFileSheet = "新建联系人测试用例";
+    //乐村淘网站
+    public static final String shopUrl = "https://www.letao.com/";
+    public static final String shopExcelFilePath = "resources/乐淘购物网站测试数据";
 }

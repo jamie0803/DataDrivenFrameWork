@@ -33,6 +33,18 @@ public class ExcelUtil {
         excelSheet = excelBook.getSheet(sheetName);
     }
 
+    public static void setExcelFile(String path) {
+        FileInputStream excelInput;
+        try {
+            excelInput = new FileInputStream(path);
+            excelBook = new XSSFWorkbook(excelInput);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getCellData(int rowNum, int colNum) {
         cell = excelSheet.getRow(rowNum).getCell(colNum);
         if (cell.getCellType() == CellType.BOOLEAN) {
@@ -41,6 +53,20 @@ public class ExcelUtil {
             return String.valueOf(Math.round(cell.getNumericCellValue()));
         } else {
             return String.valueOf(cell.getStringCellValue());
+        }
+    }
+
+    public static String getCellData(String sheetName, int rowNum, int colNum) {
+        try {
+            excelSheet = excelBook.getSheet(sheetName);
+            cell = excelSheet.getRow(rowNum).getCell(colNum);
+
+            String cellData = cell.getCellType() == CellType.STRING
+                    ? cell.getStringCellValue() : String.valueOf(Math.round(cell.getNumericCellValue()));
+            return cellData;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";  //读取异常，返回空字符
         }
     }
 
@@ -76,7 +102,7 @@ public class ExcelUtil {
         //获取文件参数的拓展名，判断是xlsx还是xls
         String fileExtensionName = excelFilePath.substring(excelFilePath.indexOf("."));
         //文件类型如果是.xlsx，则使用XSSFWork实例化
-        //文件类型如果是.xlsx，则使用XSSFWork实例化
+        //文件类型如果是.xls，则使用HSSFWork实例化
         if (fileExtensionName.equals(".xlsx")) {
             workbook = new XSSFWorkbook(read);
         } else if (fileExtensionName.equals(".xls")) {
